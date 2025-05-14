@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
 import Home from "@/pages/Home";
+import AdScripts from "@/components/ads/AdScripts";
+import SocialBarAd from "@/components/ads/SocialBarAd";
 
 function Router() {
   return (
@@ -20,7 +22,9 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <AdScripts />
         <Router />
+        <SocialBarAd />
       </TooltipProvider>
     </QueryClientProvider>
   );

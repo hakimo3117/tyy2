@@ -9,6 +9,8 @@ import FeaturesSection from "@/components/FeaturesSection";
 import BlogSection from "@/components/BlogSection";
 import FAQSection from "@/components/FAQSection";
 import CTASection from "@/components/CTASection";
+import BannerAd from "@/components/ads/BannerAd";
+import NativeBanner from "@/components/ads/NativeBanner";
 import { useEffect } from "react";
 
 export default function Home() {
@@ -32,12 +34,20 @@ export default function Home() {
         <AdBanner adSlot="top-banner" />
         <TrailerSection />
         <PCDownloadSection />
+        {/* Additional ad placement for higher revenue */}
+        <BannerAd placement="after-pc-section" />
         <MobileDownloadSection />
+        <NativeBanner />
         <FeaturesSection />
         <AdBanner adSlot="middle-banner" />
         <BlogSection />
+        {/* Additional ad placement for higher revenue */}
+        <BannerAd placement="before-faq" />
         <FAQSection />
+        <NativeBanner />
         <CTASection />
+        {/* Final ad before footer for maximum clicks */}
+        <BannerAd placement="before-footer" />
       </main>
       <Footer />
     </div>
