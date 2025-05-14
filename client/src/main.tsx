@@ -2,6 +2,9 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import "./index.css";
 
+// Enable dark mode by default
+document.documentElement.classList.add('dark');
+
 // Add metadata for SEO
 const meta = document.createElement('meta');
 meta.name = 'description';
@@ -11,7 +14,7 @@ document.head.appendChild(meta);
 // Add Open Graph tags for better social media sharing
 const addOpenGraphTag = (property: string, content: string) => {
   const tag = document.createElement('meta');
-  tag.property = property;
+  tag.setAttribute('property', property);
   tag.content = content;
   document.head.appendChild(tag);
 };
@@ -36,5 +39,11 @@ const linkFA = document.createElement('link');
 linkFA.rel = 'stylesheet';
 linkFA.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css';
 document.head.appendChild(linkFA);
+
+// Set theme color for dark mode
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+if (themeColorMeta) {
+  themeColorMeta.setAttribute('content', '#0f172a'); // dark blue color
+}
 
 createRoot(document.getElementById("root")!).render(<App />);
